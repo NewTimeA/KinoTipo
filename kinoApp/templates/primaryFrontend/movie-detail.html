@@ -1,0 +1,27 @@
+{% extends '../base.html' %}
+
+{% block title %} Фильм {% endblock %}
+
+{% block content %}
+    <div class="movie-detail" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('{{ movie.cover }}'); height: 100%; background-position: center; background-size: cover; background-attachment: fixed;">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-4">
+                    <img src="{{ movie.poster }}" width="70%" height="400">
+                </div>
+                <div class="col-md-8">
+                    <h1 class="text-white mb-5">{{ movie.movieName }}</h1>
+                    <h5 class="text-white mb-4">Genre: {{ movie.genre.genreName }}</h5>
+                    <p class="text-white"> Year: {{ movie.year }} | Country: {{ movie.country }} | Producer: {{ movie.producer }} </p>
+                    <p class="text-white">Description: {{ movie.description }} </p>
+                    <a href="#watch" class="btn btn-danger">Watch</a>
+                </div>
+            </div>
+            <div class="card bg-transparent">
+                <div class="card-body">
+                    <iframe width="100%" height="500" src="{{ movie.movieLink }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen id="watch"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

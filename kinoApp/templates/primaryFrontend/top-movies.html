@@ -1,0 +1,40 @@
+{% extends '../base.html' %}
+
+{% block title %} Топ фильмы {% endblock %}
+
+{% block content %}
+    <div class="top-movies">
+        <div class="container">
+            {% for m in movie %}
+                {% if m.isRec %}
+                    <h1 class="text-white mb-4">Top-movies</h1>
+                    <div class="card mb-5 bg-transparent">
+                        <img src="{{ m.cover }}" class="card-img-top" height="250">
+                        <div class="card-img-overlay" id="rec">
+                            <h2 class="text-white">{{ m.movieName }}</h2>
+                            <p class="text-white">{{ m.description }}</p>
+                            <a class="btn btn-danger" href="{% url 'movieDetailPage' pk=m.pk %}">Смотреть</a>
+                        </div>
+                    </div>
+                {% else%}
+                    <h2 class="text-white mb-4">No recommended</h2>
+                {% endif %}
+            {% endfor %}
+            <div class="owl-carousel owl-theme">
+                {% for movie in movies %}
+                    {% if movie.isTop %}
+                        <div class="card bg-transparent">
+                            <img src="{{ movie.poster }}" class="card-img-top" height="330">
+                            <div class="card-img-overlay">
+                                <h3 class="text-white">{{ movie.movieName }}</h3>
+                                <a href="{% url 'movieDetailPage' pk=movie.pk %}" class="btn btn-danger">Смотреть</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <h2 class="text-white">Nothing</h2>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

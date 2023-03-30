@@ -1,0 +1,58 @@
+/* index  */
+.banner {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('../img/posters.png');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+.banner p {
+    width: 50%;
+    text-align: justify;
+}
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+/* all movies and other */
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('../img/movies3.jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.all-movies, .movie-detail, .top-movies {
+    padding: 90px 0;
+    display: flex;
+}
+.all-movies li a {
+    color: white;
+    text-decoration: none;
+}
+.card-img-overlay:not(#rec) {
+    opacity: 0;
+    transition: 0.2s ease-in;
+}
+.card-img-overlay:hover:not(#rec) {
+    opacity: 1;
+    transition: 0.2s ease-in;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/* login */
+.login, .sign-up {
+    padding: 90px 0;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('../img/posters.png');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+}
+.login .card, .sign-up .card {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.login a, .sign-up a {
+    color: black;
+}

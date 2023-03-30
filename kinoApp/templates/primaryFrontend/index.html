@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KinoTipo</title>
+    <link rel="stylesheet" href="{% static './css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static './css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static './css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static './css/style.css' %}">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <header class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand text-white" href="{% url 'homePage' %}">KinoTipo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'homePage' %}">Main</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'allMoviesPage' %}">Movies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'topMoviesPage' %}">Top</a>
+              </li>
+                {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'logoutUser' %}">{{ user.username }}</a>
+              </li>
+                {% else %}
+              <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'signUpPage' %}">Sign up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'loginPage' %}">Login</a>
+              </li>
+                {% endif %}
+            </ul>
+          </div>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="container">
+            <h1 class="text-white">Бесплатные фильмы</h1>
+            <p class="text-white">Добро пожаловать на наш сайт с бесплатными фильмами! Здесь вы найдете топовые и бесплатные фильм в лучшем качестве! Боевики, экшены, драмы и комедии - все это вы найдете на сайте KinoTipo! Сайт KinoTipo предлагает вам перейти к авторизации, а если нет аккаунта - регистрации!</p>
+            <a href="{% url 'loginPage' %}" class="btn btn-danger">Login</a>
+            <a href="{% url 'signUpPage' %}" class="btn btn-danger">Sign up</a>
+        </div>
+    </div>
+
+    <script src="{% static './js/jquery.min.js' %}"></script>
+    <script src="{% static './js/owl.carousel.min.js' %}"></script>
+    <script src="{% static './js/carousel.js' %}"></script>
+    <script src="{% static './js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>
