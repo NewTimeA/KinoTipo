@@ -1,5 +1,6 @@
 {% extends '../base.html' %}
-
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 {% block title %}Login{% endblock %}
 
 {% block content %}
@@ -10,7 +11,7 @@
                 <h1>Авторизация</h1>
                 <form method="post">
                     {% csrf_token %}
-                    {{ form }}
+                    {{ form|crispy }}
                     <button class="btn btn-danger">Войти</button>
                     <a href="{% url 'loginPage' %}">Если нет аккаунта</a>
                 </form>
